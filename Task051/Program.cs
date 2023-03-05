@@ -34,18 +34,29 @@ int[,] GetArray(int M, int N)
     return result;
 }
 
+// int diagonalSum(int[,] N)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < N.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < N.GetLength(1); j++)
+//         {
+//             if (i == j)
+//             {
+//                 sum += N[i, j];
+//             }
+//         }
+//     }
+//     return sum;
+// }
+
 int diagonalSum(int[,] N)
 {
+    int length = N.GetLength(0) < N.GetLength(1) ? N.GetLength(0) : N.GetLength(1);
     int sum = 0;
-    for (int i = 0; i < N.GetLength(0); i++)
+    for (int i = 0; i < length; i++)
     {
-        for (int j = 0; j < N.GetLength(1); j++)
-        {
-            if (i == j)
-            {
-                sum = sum + N[i, j];
-            }
-        }
+        sum += N[i, i];
     }
     return sum;
 }
